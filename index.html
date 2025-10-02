@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Audio メトロノーム＆チューナー</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Web Audio メトロノーム＆チューナー</h1>
+    </header>
+
+    <!-- メトロノームセクション (上段) -->
+    <section id="metronome-section">
+      <h2>メトロノーム</h2>
+      <div class="controls">
+        <!-- 音源がロードされるまでは、JavaScriptでdisabledになります -->
+        <button id="start-stop-button" disabled>ロード中...</button>
+        <div class="tempo-control">
+          <label for="tempo-slider"
+            >テンポ: <span id="tempo-display">120</span> BPM</label
+          >
+          <input
+            type="range"
+            id="tempo-slider"
+            min="40"
+            max="240"
+            value="120"
+          />
+        </div>
+      </div>
+    </section>
+
+    <hr />
+
+    <!-- チューナーセクション (下段) -->
+    <section id="tuner-section">
+      <h2>ギター音合わせ (チューナー)</h2>
+      <div class="tuner-buttons">
+        <!-- レギュラーチューニング -->
+        <h3>レギュラーチューニング (6弦 E2 ～ 1弦 E4)</h3>
+        <div id="regular-tuning">
+          <!-- ボタンはJavaScriptで生成されます -->
+        </div>
+
+        <!-- ハーフダウンチューニング -->
+        <h3>ハーフダウンチューニング (6弦 Eb2 ～ 1弦 Eb4)</h3>
+        <div id="half-down-tuning">
+          <!-- ボタンはJavaScriptで生成されます -->
+        </div>
+      </div>
+    </section>
+
+    <hr />
+
+    <!-- 音量セクション (最下段) -->
+    <section id="volume-section">
+      <h2>全体音量</h2>
+      <div class="volume-control">
+        <label for="volume-slider"
+          >音量: <span id="volume-display">5</span></label
+        >
+        <input
+          type="range"
+          id="volume-slider"
+          min="0"
+          max="100"
+          value="50"
+          step="10"
+        />
+      </div>
+    </section>
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

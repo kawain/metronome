@@ -1,0 +1,140 @@
+/* css/style.css */
+
+/* 黒基調の基本設定 */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121212; /* 非常に濃いグレー (黒基調) */
+  color: #e0e0e0; /* 明るいグレー (目に優しい) */
+  margin: 0;
+  padding: 20px;
+}
+
+header {
+  text-align: center; /* ヘッダー内のh1を中央揃え */
+  margin-bottom: 40px;
+}
+
+section {
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background-color: #1e1e1e; /* セクションの背景を少し明るく */
+
+  display: flex; /* Flexboxコンテナにする */
+  flex-direction: column; /* 子要素を縦方向に並べる */
+  align-items: center; /* 子要素を主軸（縦方向）に直交する軸（横方向）で中央揃えにする */
+  text-align: center; /* セクション内のテキストも中央揃えにする (flexアイテムでないテキスト用) */
+}
+
+h1,
+h2,
+h3 {
+  color: #ffffff;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #333;
+  margin: 40px 0;
+}
+
+/* フォームとコントロールの共通スタイル */
+.controls {
+  /* メトロノームセクションのコントロール用 */
+  display: flex;
+  flex-direction: column; /* 子要素（ボタンとテンポコントロール）を縦に並べる */
+  align-items: center; /* 横方向中央揃え */
+  gap: 20px; /* ボタンとテンポコントロールの間にスペース */
+}
+
+.tempo-control,
+.volume-control {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 子要素（ラベルとスライダー）を中央揃えにする */
+  width: 250px; /* input[type="range"] の幅に合わせる */
+}
+
+/* 開始/停止ボタン */
+#start-stop-button {
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: #4caf50; /* 緑色 */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  width: 150px; /* ボタンの幅を固定 */
+}
+
+#start-stop-button:hover:not([disabled]) {
+  background-color: #45a049;
+}
+
+#start-stop-button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
+
+/* スライダーの共通スタイル */
+input[type='range'] {
+  margin: 20px 0;
+  width: 250px; /* テンポと音量のスライダーの幅を統一 */
+  -webkit-appearance: none; /* WebKit系ブラウザ用 */
+  appearance: none; /* 標準プロパティ */
+  height: 8px;
+  background: #555;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  /* テンポスライダー */
+  background: #007bff;
+  cursor: pointer;
+}
+
+#volume-slider::-webkit-slider-thumb {
+  background: #ffd700; /* 音量スライダーは金色 */
+}
+
+#tempo-slider:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* チューナーボタン */
+#regular-tuning,
+#half-down-tuning {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  /* 親のsectionがalign-items: centerで中央揃えになるため、ここでの特別なセンタリングは不要です */
+  justify-content: center; /* チューナーボタンの並び自体も中央揃えにする */
+  max-width: 600px; /* ボタンが横に並びすぎないように最大幅を設定 (調整可能) */
+}
+
+.tuner-button {
+  padding: 15px 25px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #6a0dad; /* 紫色 */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  min-width: 80px;
+  text-align: center;
+}
+
+.tuner-button:hover {
+  background-color: #5a0bae;
+}
